@@ -16,12 +16,12 @@ build:
 
 requirements:
   build:
-    - cmake
+    - cmake <4
     - ninja
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - pkg-config             # [unix]
+    - pkg-config  # [unix]
     - swig
   host:
     - python
@@ -39,7 +39,7 @@ outputs:
     script: libgdcm_install.bat  # [win]
     requirements:
       build:
-        - cmake
+        - cmake <4
       host:
         - libuuid  # [unix]
         - zlib
@@ -64,7 +64,7 @@ outputs:
         - {{ pin_subpackage('libgdcm', max_pin='x.x') }}
     requirements:
       build:
-        - cmake
+        - cmake <4
       host:
         - {{ pin_subpackage('libgdcm', exact=True) }}
       run:
@@ -80,7 +80,7 @@ outputs:
     script: gdcm_install.bat  # [win]
     requirements:
       build:
-        - cmake
+        - cmake <4
       host:
         - python
         - {{ pin_subpackage('libgdcm', exact=True) }}
